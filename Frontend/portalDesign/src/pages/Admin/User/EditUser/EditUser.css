@@ -1,0 +1,350 @@
+/* src/pages/Admin/User/EditUser/EditUser.css */
+
+/* Layout & tokens */
+:root {
+  --bg: #f5f7fb;
+  --card: #fff;
+  --text: #0b3b3b;
+  --muted: #6b7f85;
+  --accent: #00796b;
+  --accent-dark: #005f52;
+  --shadow: rgba(0, 0, 0, 0.06);
+}
+
+/* Wrapper */
+.edituser-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--text);
+}
+
+/* Content area */
+.edituser-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main */
+.edituser-main {
+  flex: 1;
+  padding: 24px;
+  overflow: auto;
+  color: var(--text); /* ensure main text is dark */
+}
+
+/* Header */
+.edituser-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.edituser-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Controls / search */
+.edituser-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-area {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d7db;
+  min-width: 260px;
+  color: var(--text);
+  background: var(--card);
+  font-size: 14px;
+  box-shadow: 0 6px 18px rgba(2, 20, 26, 0.03);
+}
+
+.search-input::placeholder {
+  color: #9fb1b2;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #00aedd;
+  box-shadow: 0 8px 28px rgba(0, 174, 221, 0.08);
+}
+
+/* ghost button */
+.btn-ghost {
+  background: none;
+  border: 1px solid #bbb;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.btn-ghost:hover {
+  background: #f0f0f0;
+}
+
+/* ---------- Message banner (success / error) for EditUser ---------- */
+.edit-msg {
+  max-width: 1100px;
+  margin: 10px auto 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: block;
+  cursor: pointer; /* click to dismiss */
+}
+
+/* success (green) */
+.edit-msg.success {
+  background: rgba(0, 216, 150, 0.08);
+  color: #0b5b3d;
+  border: 1px solid rgba(0, 216, 150, 0.12);
+}
+
+/* error (red) */
+.edit-msg.error {
+  background: rgba(255, 90, 90, 0.08);
+  color: #7a1b1b;
+  border: 1px solid rgba(255, 90, 90, 0.12);
+}
+
+/* Table wrapper */
+.table-wrap {
+  overflow-x: auto;
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+/* Table */
+.edituser-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: var(--text);
+  min-width: 1000px;
+}
+
+.edituser-table thead th {
+  background: var(--accent);
+  color: #fff;
+  text-align: left;
+  padding: 10px 14px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.edituser-table tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  color: var(--text);
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* zebra + hover */
+.edituser-table tbody tr:nth-child(odd) {
+  background: rgba(240, 246, 246, 0.06);
+}
+.edituser-table tr:hover {
+  background: #f9f9f9;
+}
+
+/* monospace username */
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+    monospace;
+  font-size: 13px;
+  color: #0b3b3b;
+  font-weight: 700;
+}
+
+/* wrap emails and long text */
+.wrap {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* role pill */
+.role-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #e0f2f1;
+  color: #00695c;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* action column */
+.col-action {
+  text-align: center;
+  width: 88px;
+}
+
+.icon-btn {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-btn:hover {
+  background: var(--accent-dark);
+}
+
+/* States */
+.state {
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+}
+.state.error {
+  color: #c62828;
+  font-weight: 700;
+}
+
+/* Modal overlay & content */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  z-index: 1500;
+  overflow-y: auto;
+}
+
+.edit-modal {
+  background: var(--card);
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--text);
+}
+
+.edit-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.edit-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* body */
+.edit-modal-body {
+  padding: 20px;
+  background: #fafafa;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .search-input {
+    min-width: 200px;
+  }
+  .edituser-main {
+    padding: 18px;
+  }
+  .edituser-table {
+    min-width: 900px;
+  }
+}
+
+@media (max-width: 800px) {
+  .edituser-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .search-input {
+    width: 100%;
+    min-width: 0;
+  }
+  .col-action {
+    width: 64px;
+  }
+}
+
+@media (max-width: 560px) {
+  .edituser-main {
+    padding: 12px;
+  }
+  .edituser-table {
+    font-size: 13px;
+    min-width: 720px;
+  }
+  .role-pill {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  .col-action {
+    width: 56px;
+  }
+}
+
+/* Focus outline polish */
+button:focus,
+select:focus,
+input:focus {
+  outline: 3px solid rgba(0, 174, 221, 0.08);
+  outline-offset: 2px;
+  border-radius: 8px;
+}

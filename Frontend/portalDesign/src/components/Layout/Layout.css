@@ -1,0 +1,44 @@
+/* layout CSS snippet (if not already present) */
+:root {
+  --header-height: 64px;
+  --footer-height: 56px;
+  --sidebar-expanded-left: 260px;
+  --sidebar-collapsed-left: 100px;
+  --layout-gap: 24px;
+}
+
+.layout-wrapper {
+  min-height: 100vh;
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-body {
+  display: flex;
+  flex: 1;
+}
+
+.layout-main {
+  flex: 1;
+  padding: var(--layout-gap);
+  transition: padding-left 180ms ease;
+}
+
+.layout-wrapper.sidebar-expanded .layout-main {
+  padding-left: var(--sidebar-expanded-left);
+}
+.layout-wrapper.sidebar-collapsed .layout-main {
+  padding-left: var(--sidebar-collapsed-left);
+}
+
+@media (max-width: 960px) {
+  .layout-main {
+    padding-left: var(--layout-gap) !important;
+  }
+  .layout-body {
+    flex-direction: column;
+  }
+}

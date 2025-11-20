@@ -1,0 +1,266 @@
+/* src/components/Header/Header.css
+   Complete, polished header styles (portal dropdown + logout button)
+*/
+
+/* --- Theme vars --- */
+:root {
+  --header-height: 64px;
+  --max-width: 1200px;
+  --bg-opaque: rgba(255, 255, 255, 0.98);
+  --muted: #6b7f85;
+  --brand-dark: #083434;
+  --brand-accent: #00aedd;
+  --panel-shadow: 0 6px 20px rgba(8, 20, 26, 0.05);
+  --card-shadow: 0 6px 16px rgba(2, 20, 26, 0.04);
+  --rounded: 12px;
+}
+
+/* ------------ Header wrapper ------------ */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 1300;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    180deg,
+    var(--bg-opaque),
+    rgba(250, 250, 250, 0.98)
+  );
+  box-shadow: var(--panel-shadow);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* inner container centers content and limits width */
+.app-header-inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+/* subtle divider under header */
+.app-header-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.01));
+}
+
+/* ------------ Left area (avatar + info) ------------ */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0; /* allow shrinking */
+}
+
+/* avatar icon box */
+.avatar-icon {
+  width: 44px;
+  height: 44px;
+  color: #0b3b3b;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #f7f9f9);
+  padding: 4px;
+  box-shadow: var(--card-shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: default;
+}
+
+/* small hover lift */
+.avatar-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(2, 20, 26, 0.06);
+}
+
+/* user text block */
+.user-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* user name - keep readable but not overwhelming */
+.user-name {
+  font-weight: 700;
+  color: var(--brand-dark);
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* login time text */
+.login-time {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* ------------ Center spacer ------------ */
+.header-center {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ------------ Right area (portal + logout) ------------ */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Portal dropdown styling */
+.portal-dropdown {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(10, 10, 10, 0.06);
+  background: #fff;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  min-width: 160px;
+  box-shadow: var(--card-shadow);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* subtle hover & focus */
+.portal-dropdown:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(2, 20, 26, 0.06);
+}
+.portal-dropdown:focus {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(0, 174, 221, 0.06);
+  transform: none;
+}
+
+/* option visibility */
+.portal-dropdown option {
+  color: #333;
+  background: #fff;
+}
+
+/* ------------ Logout button ------------ */
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(8, 52, 52, 0.06);
+  background: #fff;
+  color: var(--brand-dark);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  min-height: 36px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Icon-only fallback (small screens) */
+.logout-button .logout-text {
+  display: inline-block;
+}
+
+/* hover and active states */
+.logout-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(2, 20, 26, 0.06);
+  background: #f7f9f9;
+}
+.logout-button:active {
+  transform: translateY(-1px);
+}
+
+/* focus ring for keyboard users */
+.logout-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(0, 174, 221, 0.06);
+}
+
+/* small screens: hide logout text, show only icon */
+@media (max-width: 640px) {
+  .logout-button .logout-text {
+    display: none;
+  }
+  .logout-button {
+    padding: 8px;
+    border-radius: 10px;
+    min-width: 40px;
+  }
+}
+
+/* ensure portal dropdown doesn't show on very small screens */
+@media (max-width: 900px) {
+  .portal-dropdown {
+    display: none;
+  }
+}
+
+/* mobile compact adjustments */
+@media (max-width: 420px) {
+  .app-header-inner {
+    padding: 0 10px;
+    max-width: calc(100% - 20px);
+  }
+  .login-time {
+    display: none;
+  }
+}
+
+/* ------------ Accessibility helpers ------------ */
+/* ensure controls have visible focus */
+.app-header [tabindex="0"]:focus,
+.app-header button:focus,
+.app-header select:focus {
+  outline: none;
+  box-shadow: 0 0 0 6px rgba(0, 174, 221, 0.06);
+}
+
+/* reduce motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .avatar-icon,
+  .portal-dropdown,
+  .logout-button,
+  .portal-dropdown:hover,
+  .logout-button:hover {
+    transition: none;
+  }
+}
+
+/* ------------ Small polish for visual balance ------------ */
+/* make header inner content slightly denser on wide screens */
+@media (min-width: 1400px) {
+  .app-header-inner {
+    max-width: 1360px;
+  }
+}

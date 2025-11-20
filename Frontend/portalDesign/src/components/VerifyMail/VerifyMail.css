@@ -1,0 +1,227 @@
+/* VerifyMail.css — polished, wider card and strong status */
+
+/* Tokens */
+:root {
+  --page-bg: #0f2b2b; /* behind the content - matches your app gradient */
+  --panel-bg: #f7f9fa;
+  --card: #ffffff;
+  --muted: #6b7f85;
+  --accent: #00796b;
+  --accent-2: #00bfa5;
+  --danger: #d04545;
+  --text: #083434;
+  --soft-shadow: rgba(2, 20, 26, 0.06);
+}
+
+.vm-page {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 20px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.12));
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: var(--text);
+}
+
+/* container centers the card and restricts width for wider look */
+.vm-container {
+  width: 100%;
+  max-width: 920px; /* wider than before */
+  background: linear-gradient(180deg, var(--panel-bg), #fbfeff);
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 20px 60px rgba(2, 20, 26, 0.14);
+  border: 1px solid rgba(10, 30, 30, 0.04);
+  box-sizing: border-box;
+}
+
+/* header */
+.vm-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.vm-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 121, 107, 0.08),
+    rgba(0, 191, 165, 0.06)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(2, 20, 26, 0.06);
+}
+.vm-badge-icon {
+  width: 30px;
+  height: 30px;
+  fill: rgba(0, 121, 107, 0.9);
+  opacity: 0.95;
+}
+.vm-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--text);
+}
+.vm-sub {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* main card area */
+.vm-card {
+  margin-top: 6px;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 36px var(--soft-shadow);
+  border: 1px solid rgba(14, 38, 41, 0.04);
+}
+
+/* status row */
+.vm-status {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(243, 247, 247, 0.6),
+    rgba(250, 251, 252, 0.6)
+  );
+  border: 1px solid rgba(230, 238, 240, 0.8);
+}
+.vm-status.success {
+  background: linear-gradient(
+    180deg,
+    rgba(231, 249, 243, 0.8),
+    rgba(245, 255, 250, 0.6)
+  );
+  border-color: rgba(0, 200, 120, 0.12);
+}
+.vm-status.error {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 240, 240, 0.7),
+    rgba(255, 249, 249, 0.6)
+  );
+  border-color: rgba(196, 61, 61, 0.12);
+}
+
+/* spinner (loading) */
+.vm-spinner {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 6px solid rgba(0, 0, 0, 0.06);
+  border-top-color: var(--accent);
+  animation: vm-rotate 0.9s linear infinite;
+  box-shadow: 0 6px 18px rgba(2, 20, 26, 0.06);
+}
+@keyframes vm-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* check / x icons */
+.vm-check,
+.vm-x {
+  width: 54px;
+  height: 54px;
+  fill: var(--accent);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 121, 107, 0.12),
+    rgba(0, 191, 165, 0.06)
+  );
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 6px 18px rgba(2, 20, 26, 0.06);
+}
+.vm-x {
+  fill: var(--danger);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 200, 200, 0.12),
+    rgba(255, 230, 230, 0.06)
+  );
+}
+
+/* message text */
+.vm-status-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.vm-message {
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--text);
+}
+.vm-subtext {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* actions */
+.vm-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+.vm-ghost {
+  background: transparent;
+  border: 1px solid rgba(8, 52, 52, 0.06);
+  color: var(--text);
+  font-weight: 800;
+}
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* info foot */
+.vm-info {
+  margin-top: 12px;
+  border-top: 1px dashed #eef3f4;
+  padding-top: 10px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* small screens */
+@media (max-width: 760px) {
+  .vm-container {
+    padding: 16px;
+    max-width: 680px;
+  }
+  .vm-status {
+    flex-direction: row;
+    gap: 12px;
+  }
+  .vm-actions {
+    justify-content: center;
+  }
+}

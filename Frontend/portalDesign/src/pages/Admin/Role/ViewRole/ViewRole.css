@@ -1,0 +1,281 @@
+/* basic tokens */
+:root {
+  --bg: #f6f8fa;
+  --card: #fff;
+  --muted: #6b7f85;
+  --accent: #00796b;
+  --accent-2: #00bfa5;
+  --danger: #c43d3d;
+  --text: #083434;
+  --shadow: rgba(2, 20, 26, 0.06);
+}
+
+/* wrapper & layout */
+.viewrole-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  color: var(--text);
+}
+.viewrole-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.viewrole-main {
+  margin-top: 64px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* header controls */
+.viewrole-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.viewrole-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+}
+.viewrole-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.left-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.right-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* search */
+.search-input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d7e0e3;
+  min-width: 300px;
+  font-size: 14px;
+  background: var(--card);
+  color: var(--text);
+}
+.search-input::placeholder {
+  color: #9fb1b2;
+}
+
+/* message banner */
+.viewrole-msg {
+  max-width: 1200px;
+  margin: 8px auto 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.viewrole-msg.success {
+  background: rgba(0, 216, 150, 0.06);
+  color: #0b5b3d;
+  border: 1px solid rgba(0, 216, 150, 0.12);
+}
+.viewrole-msg.error {
+  background: rgba(255, 90, 90, 0.06);
+  color: #7a1b1b;
+  border: 1px solid rgba(255, 90, 90, 0.12);
+}
+
+/* table panel */
+.table-panel {
+  background: linear-gradient(180deg, #fff, #fbfeff);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 12px 36px var(--shadow);
+  border: 1px solid rgba(14, 38, 41, 0.04);
+  overflow: hidden;
+}
+.table-wrap {
+  overflow: auto;
+  border-radius: 10px;
+  max-height: 560px;
+  margin-top: 6px;
+}
+
+/* role table */
+.role-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+.role-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--card);
+  padding: 12px 14px;
+  font-weight: 800;
+  color: #083434;
+  border-bottom: 1px solid #eef6f7;
+  text-align: left;
+  white-space: nowrap;
+}
+.role-table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f3f7f7;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.role-table tbody tr:nth-child(odd) {
+  background: rgba(240, 246, 246, 0.35);
+}
+.role-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* wrap cell */
+.wrap {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 420px;
+}
+
+/* role name */
+.role-name {
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* status pill (active/inactive) */
+.status-pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.status-pill.active {
+  background: rgba(0, 121, 107, 0.08);
+  color: #00685a;
+}
+.status-pill.inactive {
+  background: rgba(180, 30, 30, 0.06);
+  color: var(--danger);
+}
+
+/* pager */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.pager-info {
+  color: #6b7f85;
+  font-size: 13px;
+  font-weight: 700;
+}
+.pager-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.pager-current {
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* small button styles */
+.btn-ghost {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(8, 52, 52, 0.06);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
+.btn {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  cursor: pointer;
+  font-weight: 800;
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* states */
+.state {
+  padding: 28px;
+  text-align: center;
+  font-weight: 700;
+  color: #6b7f85;
+}
+.state.error {
+  color: var(--danger);
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+  .viewrole-main {
+    padding: 18px;
+  }
+  .search-input {
+    min-width: 220px;
+  }
+  .role-table {
+    min-width: 820px;
+  }
+}
+@media (max-width: 900px) {
+  .viewrole-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .role-table {
+    min-width: 640px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 560px) {
+  .search-input {
+    width: 100%;
+    min-width: 0;
+  }
+  .role-table {
+    min-width: 520px;
+    font-size: 13px;
+  }
+  .page-size-label {
+    display: none;
+  }
+}

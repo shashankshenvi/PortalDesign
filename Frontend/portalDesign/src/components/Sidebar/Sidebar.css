@@ -1,0 +1,213 @@
+/*
+  Below is a companion CSS you can drop into: src/components/Sidebar/Sidebar.css
+  The CSS aims to be compact and correct layout for both collapsed and expanded states.
+*/
+
+/* Sidebar.css */
+
+/* reset / base */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 64px; /* collapsed width */
+  background: linear-gradient(180deg, #0f2b2b 0%, #132f32 100%);
+  color: #cfeee8;
+  display: flex;
+  flex-direction: column;
+  transition: width 220ms ease, transform 200ms ease;
+  z-index: 40;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.35);
+}
+
+.sidebar.expanded {
+  width: 260px;
+}
+
+.sidebar.mobile-open {
+  transform: translateX(0);
+}
+
+/* mobile toggle */
+.sidebar-mobile-toggle {
+  position: fixed;
+  left: 8px;
+  top: 12px;
+  z-index: 60;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: #e8fbf9;
+  padding: 8px;
+  border-radius: 8px;
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 260px;
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .sidebar-mobile-toggle {
+    display: inline-flex;
+  }
+}
+
+.sidebar-top {
+  padding: 12px 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.sidebar-brand .brand-small {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #dffcf6;
+}
+
+.sidebar-session {
+  margin-left: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 8px;
+  width: 100%;
+}
+.sidebar-session-user {
+  font-size: 13px;
+  color: #e8fbf9;
+}
+.sidebar-session-status {
+  font-size: 11px;
+  color: rgba(200, 235, 230, 0.8);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sidebar-session-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+.icon-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: none;
+  color: #cfeee8;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sidebar-items {
+  margin-top: 6px;
+  padding: 6px 6px 12px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  color: #cfeee8;
+  text-decoration: none;
+}
+.sidebar-item .sidebar-icon {
+  width: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.sidebar-item .sidebar-label {
+  font-size: 14px;
+  display: inline-block;
+}
+
+.sidebar.collapsed .sidebar-label {
+  display: none;
+}
+
+.sidebar-item.active {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.sidebar-tooltip {
+  position: absolute;
+  left: 64px;
+  top: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  display: none;
+}
+.sidebar-item:hover .sidebar-tooltip {
+  display: inline-block;
+}
+
+.sidebar-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e8fbf9;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin-left: auto;
+  min-width: 36px;
+  text-align: center;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 12px;
+}
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 30;
+}
+
+/* extras */
+.sidebar-item.extra {
+  padding-right: 12px;
+}
+
+/* make collapsed look like a thin vertical bar on the left (screenshot compatible) */
+.sidebar.collapsed {
+  width: 56px;
+}
+.sidebar.collapsed .sidebar-top {
+  justify-content: center;
+}
+
+/* ensure content doesn't jump under the sidebar */
+body {
+  --sidebar-width: 260px;
+}
+
+@media (min-width: 901px) {
+  .app-content {
+    margin-left: var(--sidebar-width);
+  }
+}

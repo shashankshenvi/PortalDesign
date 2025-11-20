@@ -1,0 +1,286 @@
+/* src/pages/ProfilePage/ProfilePage.css */
+
+/* Wrapper centers content inside layout-main */
+.profile-page-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 18px 12px;
+  box-sizing: border-box;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 12px 36px rgba(4, 22, 36, 0.06);
+  box-sizing: border-box;
+  color: #0b3b3b;
+}
+
+/* Title & messages */
+.profile-title {
+  margin: 0 0 14px 0;
+  font-size: 22px;
+  color: #083434;
+  font-weight: 800;
+}
+
+.profile-msg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  color: #083434;
+  border: 1px solid transparent;
+}
+
+/* success (green) */
+.profile-msg.success {
+  background: rgba(0, 216, 150, 0.08);
+  color: #0b5a39;
+  border-color: rgba(0, 216, 150, 0.12);
+}
+
+/* error (red) */
+.profile-msg.error {
+  background: rgba(255, 90, 90, 0.08);
+  color: #7a1b1b;
+  border-color: rgba(255, 90, 90, 0.12);
+}
+
+.msg-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Layout for form */
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.form-row.password-row {
+  grid-template-columns: 1fr;
+}
+
+/* Form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b7f85;
+}
+
+/* Inputs */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"] {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e0e6e8;
+  background: #fff;
+  font-size: 14px;
+  color: #083434;
+  box-sizing: border-box;
+}
+
+/* edit field with icon */
+.edit-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: #f4f7f7;
+  color: #083434;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.icon-btn[aria-pressed="true"] {
+  background: #e0f7f4;
+  color: #00796b;
+}
+
+/* Password field area */
+.password-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.password-edit {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+.password-edit input {
+  flex: 1;
+}
+
+/* Roles */
+.roles-title {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #083434;
+  font-weight: 800;
+}
+
+.roles-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.role-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #e6eef0;
+  min-height: 160px;
+  box-sizing: border-box;
+}
+.role-box h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #083434;
+}
+
+.role-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow: auto;
+}
+
+/* Each role row */
+.role-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fbfdfe;
+  border: 1px solid #e6eef0;
+}
+
+/* Role info block */
+.role-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.role-info strong {
+  line-height: 1.2;
+  display: block;
+}
+.role-info .role-sub {
+  font-size: 12px;
+  color: #6b7f85;
+  margin-top: 2px;
+}
+
+/* Make Add/Remove buttons consistent and vertically centered */
+.btn.tiny,
+.btn.tiny.btn-outline {
+  height: 36px;
+  min-width: 72px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* Actions area */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #00796b, #00bfa5);
+  color: #fff;
+}
+.btn-outline {
+  background: transparent;
+  color: #083434;
+  border: 2px solid rgba(8, 52, 52, 0.06);
+}
+
+/* helpers */
+.muted {
+  color: #6b7f85;
+  font-size: 13px;
+}
+
+/* Loading placeholder */
+.profile-loading {
+  padding: 40px;
+  text-align: center;
+  color: #6b7f85;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .roles-section {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .password-edit {
+    flex-direction: column;
+  }
+  .action-buttons {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+}

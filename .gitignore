@@ -44,3 +44,37 @@ Backend/.env
 Backend/*.properties.local
 target/
 Backend/PortalDesign/target/
+
+
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Vite
+.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS / IDE trash
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local history folders
+.history/
+
+

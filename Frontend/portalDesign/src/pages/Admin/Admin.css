@@ -1,0 +1,202 @@
+/* Admin.css - improved admin panel layout (font scoped to admin area) */
+
+/* If you want a Google font, add this to your index.html:
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+Then change --admin-font-family below to 'Inter', sans-serif
+*/
+
+/* Variables */
+:root {
+  --admin-font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --admin-accent: #00796b;
+  --admin-bg: #f6f9fb;
+}
+
+/* scope font to admin area so it won't affect rest of app */
+.admin-page-wrapper,
+.admin-content,
+.admin-container,
+.admin-section {
+  font-family: var(--admin-font-family);
+}
+
+/* page wrapper */
+.admin-page-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--admin-bg);
+  box-sizing: border-box;
+}
+
+/* content area (beside sidebar) */
+.admin-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* main container padding */
+.admin-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 22px auto;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* header */
+.admin-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.admin-header h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #083434;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+.admin-sub {
+  margin: 0;
+  color: #6b7f85;
+  font-size: 14px;
+}
+
+/* Message banner (success / error) */
+.admin-message {
+  max-width: 1200px;
+  margin: 12px auto;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: block;
+  cursor: pointer; /* click to dismiss */
+}
+
+/* success (green) */
+.admin-message.success {
+  background: rgba(0, 216, 150, 0.08);
+  color: #0b5b3d;
+  border: 1px solid rgba(0, 216, 150, 0.12);
+}
+
+/* error (red) */
+.admin-message.error {
+  background: rgba(255, 90, 90, 0.08);
+  color: #7a1b1b;
+  border: 1px solid rgba(255, 90, 90, 0.12);
+}
+
+/* overall grid of sections */
+.admin-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* individual section */
+.admin-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 8px 24px rgba(4, 22, 36, 0.04);
+  border: 1px solid #e8f0f2;
+}
+.admin-section h2 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #083434;
+  font-weight: 700;
+}
+
+/* card grid inside each section */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* admin card */
+.admin-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(250, 252, 253, 1) 0%,
+    rgba(245, 249, 249, 1) 100%
+  );
+  border: 1px solid rgba(8, 52, 52, 0.04);
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    border-color 0.12s ease;
+  color: inherit;
+}
+.admin-card:hover,
+.admin-card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(4, 22, 36, 0.08);
+  border-color: rgba(8, 52, 52, 0.08);
+  outline: none;
+}
+
+/* icon */
+.card-icon {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(0, 191, 165, 0.08);
+  color: var(--admin-accent);
+  font-size: 18px;
+}
+
+/* content */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #083434;
+}
+.card-desc {
+  font-size: 13px;
+  color: #6b7f85;
+}
+
+/* responsive adjustments */
+@media (min-width: 1100px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-container {
+    padding: 12px;
+    margin: 12px;
+  }
+}

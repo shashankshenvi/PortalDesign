@@ -1,0 +1,145 @@
+.addrole-main {
+  max-width: 920px;
+  margin: 90px auto 48px; /* if inside layout it will align well below header */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.addrole-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 18px 48px rgba(4, 22, 36, 0.06);
+  border: 1px solid rgba(4, 22, 36, 0.03);
+}
+
+.addrole-head h1 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  color: #083434;
+  font-weight: 800;
+}
+.addrole-sub {
+  margin: 0 0 18px;
+  color: #6b7f85;
+  font-size: 14px;
+}
+
+/* form layout */
+.addrole-form {
+  display: grid;
+  gap: 14px;
+}
+
+/* single field */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.field-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7f85;
+}
+
+/* inputs & textarea */
+.addrole-form input,
+.addrole-form textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e6eef0;
+  font-size: 15px;
+  color: #083434;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* actions */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+/* primary and outline */
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00796b, #00bfa5);
+  color: white;
+}
+.btn.is-loading {
+  opacity: 0.95;
+  position: relative;
+}
+.btn.is-loading::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-outline {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  background: transparent;
+  border: 1px solid rgba(4, 22, 36, 0.06);
+  color: #083434;
+}
+
+/* message */
+.form-message {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* success / error styles */
+.form-message.success {
+  background: rgba(0, 200, 120, 0.08);
+  color: #0b5a39;
+  border: 1px solid rgba(0, 200, 120, 0.12);
+}
+.form-message.error {
+  background: rgba(255, 90, 90, 0.08);
+  color: #7a1b1b;
+  border: 1px solid rgba(255, 90, 90, 0.12);
+}
+
+/* standalone wrapper when not inside Layout */
+.addrole-standalone .standalone-wrapper {
+  max-width: 980px;
+  margin: 18px auto 60px;
+  padding: 0 18px;
+  box-sizing: border-box;
+}
+
+/* responsive */
+@media (max-width: 820px) {
+  .addrole-main {
+    margin: 70px 16px 40px;
+  }
+  .form-actions {
+    justify-content: space-between;
+  }
+}

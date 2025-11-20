@@ -1,0 +1,229 @@
+/* ContactModal.css - portal-styled contact modal */
+
+/* tokens (match portal theme) */
+:root {
+  --cm-accent-1: #00796b;
+  --cm-accent-2: #00bfa5;
+  --cm-bg: #ffffff;
+  --cm-surface: rgba(255, 255, 255, 0.98);
+  --cm-text: #083434;
+  --cm-muted: #6b7f85;
+  --cm-shadow: 0 20px 60px rgba(4, 22, 36, 0.18);
+  --cm-radius: 14px;
+}
+
+/* backdrop */
+.cm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 18, 24, 0.52);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+/* modal card */
+.cm-modal {
+  width: 100%;
+  max-width: 520px;
+  background: linear-gradient(180deg, var(--cm-surface) 0%, #fbfefe 100%);
+  border-radius: var(--cm-radius);
+  box-shadow: var(--cm-shadow);
+  border: 1px solid rgba(6, 18, 24, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: cm-pop 260ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  outline: none;
+}
+
+@keyframes cm-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.996);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* header */
+.cm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(8, 52, 52, 0.04);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.01));
+}
+
+.cm-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--cm-text);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+/* close button */
+.cm-close {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: var(--cm-muted);
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cm-close:hover,
+.cm-close:focus {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--cm-text);
+  outline: none;
+}
+
+/* body */
+.cm-body {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* row */
+.cm-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 8px;
+  border-radius: 10px;
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+.cm-row:hover {
+  background: rgba(0, 191, 165, 0.04);
+  transform: translateY(-1px);
+}
+
+/* icon */
+.cm-icon {
+  min-width: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 191, 165, 0.08),
+    rgba(0, 191, 165, 0.04)
+  );
+  color: var(--cm-accent-1);
+  font-size: 16px;
+}
+
+/* text block */
+.cm-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.cm-label {
+  font-size: 12px;
+  color: var(--cm-muted);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.cm-value {
+  font-size: 15px;
+  color: var(--cm-text);
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* links inside */
+.cm-value a {
+  color: var(--cm-accent-1);
+  text-decoration: none;
+  font-weight: 800;
+}
+.cm-value a:hover,
+.cm-value a:focus {
+  text-decoration: underline;
+  color: var(--cm-accent-2);
+}
+
+.cm-download {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--cm-accent-1), var(--cm-accent-2));
+  color: #fff !important; /* force white text */
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.cm-download:hover,
+.cm-download:focus {
+  opacity: 0.96;
+  transform: translateY(-1px);
+  color: #fff !important; /* keep white text even on hover */
+}
+
+/* footer */
+.cm-footer {
+  padding: 14px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid rgba(8, 52, 52, 0.03);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+}
+
+/* small primary button (reuse portal style) */
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--cm-accent-1), var(--cm-accent-2));
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* responsive */
+@media (max-width: 520px) {
+  .cm-modal {
+    max-width: 96%;
+  }
+  .cm-body {
+    padding: 14px;
+    gap: 10px;
+  }
+  .cm-icon {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 14px;
+  }
+  .cm-value {
+    font-size: 14px;
+  }
+}

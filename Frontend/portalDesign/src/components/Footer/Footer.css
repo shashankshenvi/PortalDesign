@@ -1,0 +1,145 @@
+/* Footer.css - glassy footer that complements the global gradient */
+
+/* Base footer: fixed, responsive, glassy */
+.footer {
+  width: 100%;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 14px;
+  z-index: 1000;
+  flex-wrap: wrap;
+
+  /* Glass effect so the global gradient shows */
+  background: rgba(0, 31, 63, 0.12); /* faint navy tint over gradient */
+  color: #ffffff;
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Left Section: Contact button */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.15s ease, transform 0.08s ease;
+}
+.footer-left:hover,
+.footer-left:focus {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Contact text */
+.footer-contact {
+  font-weight: 600;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+.footer-left:hover .footer-contact {
+  color: #00d8ff;
+}
+
+/* Icon (left) - keep accent color */
+.icon {
+  color: #00d8ff;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Center Section: Role + Year */
+.footer-center {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 160px;
+  order: 2;
+}
+
+.footer-center-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Role title accent */
+.role-title {
+  color: #00d8ff;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+/* Right Section: Social Icons */
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  order: 3;
+}
+
+/* Social icon links */
+.contact-icon {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.95);
+  transition: color 0.18s ease, transform 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+}
+.contact-icon:hover,
+.contact-icon:focus {
+  color: #00d8ff;
+  transform: scale(1.06);
+  outline: none;
+}
+
+/* Responsive adjustments: stack content on small screens */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    padding: 10px 16px;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .footer-left,
+  .footer-right,
+  .footer-center {
+    justify-content: center;
+    order: initial;
+  }
+
+  .footer-center {
+    order: 2;
+  }
+  .footer-left {
+    order: 1;
+  }
+  .footer-right {
+    order: 3;
+  }
+
+  .footer-center-text {
+    font-size: 13px;
+  }
+
+  .contact-icon {
+    font-size: 20px;
+  }
+}
