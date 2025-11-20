@@ -1,0 +1,44 @@
+# ---------------------------
+# Global
+# ---------------------------
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# OS
+ehthumbs.db
+*.swp
+
+# ---------------------------
+# Node / React FrontEnd
+# ---------------------------
+FrontEnd/node_modules/
+FrontEnd/dist/
+FrontEnd/build/
+FrontEnd/.env
+FrontEnd/.env.*
+
+
+# ---------------------------
+# Java Spring Boot Backend
+# ---------------------------
+Backend/target/
+Backend/.classpath
+Backend/.project
+Backend/.settings/
+Backend/*.log
+Backend/*.jar
+Backend/*.war
+
+# Maven
+Backend/.mvn/wrapper/maven-wrapper.jar
+
+# Env files
+Backend/.env
+Backend/*.properties.local
