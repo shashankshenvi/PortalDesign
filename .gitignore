@@ -35,7 +35,7 @@ Backend/.settings/
 Backend/*.log
 Backend/*.jar
 Backend/*.war
-
+Backend/PortalDesign/resources/
 # Maven
 Backend/.mvn/wrapper/maven-wrapper.jar
 
