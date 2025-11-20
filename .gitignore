@@ -42,3 +42,5 @@ Backend/.mvn/wrapper/maven-wrapper.jar
 # Env files
 Backend/.env
 Backend/*.properties.local
+target/
+Backend/PortalDesign/target/
